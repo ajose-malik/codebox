@@ -1,8 +1,18 @@
-import { Button } from '@material-ui/core';
-import './App.css';
+import React, { Component } from 'react';
+import TodoList from './TodoList';
 
-function App() {
-	return <Button variant='contained'>Get clicked</Button>;
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	render() {
+		return (
+			<div className='App'>
+				<h1>See Our Todos</h1>
+				<TodoList />
+			</div>
+		);
+	}
 }
-
-export default App;
