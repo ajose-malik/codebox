@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addTodo, deleteTodo } from "./actionMaker";
 import Todo from "./Todo";
 
 class TodoList extends Component {
@@ -11,11 +12,9 @@ class TodoList extends Component {
 	}
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.dispatch({
-			type: "ADD_TODO",
-			task: this.state.task
-		});
+		this.props.addTodo(this.state.task);
 		e.target.reset();
+		this.setState({ task: "" });
 	};
 
 	handleChange = e => {
@@ -24,7 +23,7 @@ class TodoList extends Component {
 	};
 
 	deleteTodo = id => {
-		this.props.dispatch({ type: "DELETE_TODO", id });
+		this.props.deleteTodo(id);
 	};
 
 	render() {
@@ -62,4 +61,4 @@ function mapStateToProps(reduxState) {
 	};
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { addTodo, deleteTodo })(TodoList);
