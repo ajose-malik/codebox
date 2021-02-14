@@ -16,7 +16,7 @@ export default function rootReducer(state = initialState, action) {
 			};
 
 		case DELETE_TODO:
-			let todos = state.todos.filter(todo => todo.id !== newState.id);
+			let todos = state.todos.filter(todo => todo.id !== action.id);
 			return { ...state, todos };
 
 		default:

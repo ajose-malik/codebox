@@ -1,5 +1,5 @@
 export const ADD_TODO = "ADD_TODO";
-export const DELETE_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
 
 export const addTodo = task => {
 	return { type: ADD_TODO, task };
