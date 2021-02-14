@@ -1,5 +1,5 @@
 import React from "react";
 
-const Todo = ({ task }) => <li>{task}</li>;
-
-export default Todo;
+export default function Todo({ task }) {
+	return <li>{task}</li>;
+}
