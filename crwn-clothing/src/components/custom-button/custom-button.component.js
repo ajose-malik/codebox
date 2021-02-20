@@ -1,25 +1,12 @@
 import React from "react";
-import "./form-input.styles.scss";
+import "./custom-button.styles.scss";
 
-const FormInput = ({ handleChange, label, ...otherProps }) => {
+const CustomButton = ({ children, ...otherProps }) => {
 	return (
-		<div className="group">
-			<input
-				type="text"
-				className="form-input"
-				onChange={handleChange}
-				{...otherProps}
-			/>
-			{label ? (
-				<label
-					className={`${
-						otherProps.value.length ? "shrink" : ""
-					} form-input-label`}>
-					{label}
-				</label>
-			) : null}
-		</div>
+		<button className="custom-button" {...otherProps}>
+			{children}
+		</button>
 	);
 };
 
-export default FormInput;
+export default CustomButton;
