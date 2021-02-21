@@ -48,6 +48,7 @@ class SignUp extends Component {
 	};
 
 	render() {
+		const { displayName, email, password, confirmPassword } = this.state;
 		return (
 			<div>
 				{" "}
@@ -95,4 +96,4 @@ class SignUp extends Component {
 	}
 }
 
-export default SignUP;
+export default SignUp;
