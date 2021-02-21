@@ -43,7 +43,7 @@ class App extends Component {
 				<Header />
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					<Route path="/shop" component={ShopPage} />
+					<Route exact path="/shop" component={ShopPage} />
 					<Route
 						exact
 						path="/signin"
@@ -54,12 +54,11 @@ class App extends Component {
 				</Switch>
 			</div>
 		);
-		aa;
 	}
 }
 
 const mapStateToProps = ({ user }) => ({
-	setCurrentUser: user.currentUser
+	currentUser: user.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
