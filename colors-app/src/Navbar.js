@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Slider from "rc-slider";
-import {Select, MenuItem} from 
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import "rc-slider/assets/index.css";
 import "./Navbar.css";
-import { Select } from "@material-ui/core";
 
 class Navbar extends Component {
 	constructor(props) {
@@ -11,15 +11,14 @@ class Navbar extends Component {
 		this.state = { format: "hex" };
 	}
 	handleChange = e => {
-		const {handleChange} = this.props
-		const {format} = this.state
+		const { handleChange } = this.props;
+		const { format } = this.state;
 
-		
-		this.setState({format: e.target.value}, () => handleChange(format))
-	}
+		this.setState({ format: e.target.value }, () => handleChange(format));
+	};
 	render() {
 		const { changeLevel, level } = this.props;
-		const {format} = this.state
+		const { format } = this.state;
 		return (
 			<header className="Navbar">
 				<div className="logo">
