@@ -35,8 +35,10 @@ class Palette extends Component {
 					handleChange={this.changeFormat}
 				/>
 				<div className="Palette-colors">{colorBoxes}</div>
-				<footer className="Palette-footer">{paletteName}</footer>
-				<span className="emoji">{emoji}</span>
+				<footer className="Palette-footer">
+					{paletteName}
+					<span className="emoji">{emoji}</span>
+				</footer>
 			</div>
 		);
 	}
