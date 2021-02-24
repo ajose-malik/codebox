@@ -1,19 +1,19 @@
 import React from "react"
-import { ThemeProvider } from "@material-ui/core/styles"
-import MainPage from "./pages/main-page"
-import Navbar from "./comps/navbar"
+import { Container } from "react-bootstrap"
+import Header from "./comps/header"
 import Footer from "./comps/footer"
-import theme from "./mui-theme"
 
-function App() {
+const App = () => {
 	return (
-		<div className="App">
-			<ThemeProvider theme={theme}>
-				<Navbar />
-				<MainPage />
-				<Footer />
-			</ThemeProvider>
-		</div>
+		<>
+			<Header />
+			<main className="py-3">
+				<Container>
+					<h1>hello</h1>
+				</Container>
+			</main>
+			<Footer />
+		</>
 	)
 }
 
