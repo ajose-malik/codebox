@@ -1,0 +1,65 @@
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--main-color: #d81b60;
+	--pane-padding: 5px 42px;
+}
+
+body {
+	background: url("./assets/mountain.jpg") no-repeat center center/cover;
+	color: var(--main-color);
+	line-height: 1.6;
+	font-size: 2rem;
+	font-family: "Noto Sans KR", sans-serif;
+	font-weight: 100;
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	height: 300px;
+	width: 300px;
+	position: relative;
+	transform: scale(1);
+}
+
+.container.grow {
+	animation: grow 3s linear forwards;
+}
+
+@keyframes grow {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(1.2);
+	}
+}
+
+.container.shrink {
+	animation: shrink 3s linear forwards;
+}
+
+@keyframes shrink {
+	from {
+		transform: scale(1.2);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
