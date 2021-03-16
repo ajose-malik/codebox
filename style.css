@@ -1,0 +1,14 @@
+body {
+	background: #4dd0e1;
+}
+
+h2,
+p {
+	margin: 10px 0;
+}
+
+header {
+	background: #00acc1;
+
+	margin-bottom: 40px;
+}
