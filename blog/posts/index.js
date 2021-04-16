@@ -1,15 +1,17 @@
 const express = require("express")
 const { v4: uuidv4 } = require("uuid")
 
-const app = express() // Initiate express
+const app = express() // Initialize express
 app.use(express.json()) // Middleware
 
-const posts = {}
+const posts = {} //Initialize post as empty object
 
+// Get route
 app.get("/posts", (req, res) => {
 	res.send(posts)
 })
 
+// Post route
 app.post("/posts", (req, res) => {
 	const id = uuidv4()
 	const { title } = req.body
