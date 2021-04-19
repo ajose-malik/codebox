@@ -25,12 +25,24 @@ class myArray {
 		// delete this.data[Object.keys(this.data).length - 1]
 		// this.length--
 	}
+
+	// Implement shift method
+	shift() {
+		for (let i = 0; i < this.length - 1; i++) {
+			// Set index to item to the right of index
+			this.data[i] = this.data[i + 1]
+		}
+		delete this.data[this.length - 1]
+		this.length--
+	}
 }
 
 const newArray = new myArray()
-newArray.push("hello world")
-newArray.push("hello Bee")
-console.log(newArray.length)
-newArray.pop()
-console.log(newArray.length)
-console.log(newArray.get(0))
+newArray.push("!")
+newArray.push("hello")
+newArray.push("you")
+newArray.shift()
+newArray.push("are")
+newArray.push("nice")
+newArray.shift()
+console.log(newArray)
