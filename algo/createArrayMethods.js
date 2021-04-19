@@ -32,6 +32,7 @@ class myArray {
 			// Set index to item to the right of index
 			this.data[i] = this.data[i + 1]
 		}
+
 		delete this.data[this.length - 1]
 		this.length--
 	}
@@ -41,8 +42,10 @@ const newArray = new myArray()
 newArray.push("!")
 newArray.push("hello")
 newArray.push("you")
-newArray.shift()
 newArray.push("are")
 newArray.push("nice")
 newArray.shift()
+newArray.shift()
+newArray.pop()
+newArray.push("cool")
 console.log(newArray)
