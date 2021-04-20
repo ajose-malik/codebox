@@ -1,4 +1,4 @@
-// Merge sort arrays
+// Merge sort /////////////////////////
 
 const mergeSortedArrays = (array1, array2) => {
 	const result = []
@@ -7,7 +7,7 @@ const mergeSortedArrays = (array1, array2) => {
 	let i = 1
 	let j = 1
 
-	// Define edge cases
+	// Define edge cases ////////////
 	if (array1.length === 0) {
 		return array2
 		// console.log(array2)
@@ -18,7 +18,7 @@ const mergeSortedArrays = (array1, array2) => {
 		// console.log(array1)
 	}
 
-	// Merge both arrays
+	// Merge both arrays ///////////
 	while (array1AtIndex || array2AtIndex) {
 		if (!array2AtIndex || array1AtIndex < array2AtIndex) {
 			result.push(array1AtIndex)
