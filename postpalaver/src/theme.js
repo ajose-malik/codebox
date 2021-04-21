@@ -19,6 +19,7 @@ export default createMuiTheme({
 			main: offWhite
 		}
 	},
+
 	typography: {
 		tab: {
 			fontFamily: "Raleway",

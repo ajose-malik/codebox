@@ -1,5 +1,12 @@
 import React from "react"
-import { AppBar, Toolbar, Typography, Tabs, Tab } from "@material-ui/core"
+import {
+	AppBar,
+	Toolbar,
+	Typography,
+	Tabs,
+	Tab,
+	Button
+} from "@material-ui/core"
 import Logo from "../assets/logo.svg"
 import { HeaderStyles } from "./HeaderStyles"
 
@@ -12,15 +19,21 @@ export const Header = () => {
 			<AppBar>
 				<Toolbar disableGutters>
 					<img src={Logo} alt="logo" className={logo} />
-					<Typography variant="h4" className={title}>
+					<Typography variant="h4" className={title} color="secondary">
 						Post Palaver
 					</Typography>
 					<Tabs className={tabContainer}>
 						<Tab className={tab} label="Home"></Tab>
 						<Tab className={tab} label="Services"></Tab>
-						<Tab className={tab} label="Shop"></Tab>
 						<Tab className={tab} label="About Us"></Tab>
 						<Tab className={tab} label="Contact Us"></Tab>
+						<Button
+							className={tab}
+							size="small"
+							variant="outlined"
+							color="secondary">
+							Estimate
+						</Button>
 					</Tabs>
 				</Toolbar>
 			</AppBar>

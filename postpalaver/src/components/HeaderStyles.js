@@ -11,7 +11,6 @@ export const HeaderStyles = makeStyles(theme => ({
 		marginLeft: "20px"
 	},
 	title: {
-		color: "#e0e0e0",
 		marginLeft: "20px"
 	},
 	tabContainer: {
