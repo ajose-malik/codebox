@@ -9,5 +9,18 @@ export const HeaderStyles = makeStyles(theme => ({
 	logo: {
 		height: "50px",
 		marginLeft: "20px"
+	},
+	title: {
+		color: "#e0e0e0",
+		marginLeft: "20px"
+	},
+	tabContainer: {
+		marginLeft: "auto",
+		marginRight: "20px"
+	},
+	tab: {
+		...theme.typography.tab,
+		minWidth: 10,
+		marginLeft: "25px"
 	}
 }))

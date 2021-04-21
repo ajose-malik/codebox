@@ -18,5 +18,13 @@ export default createMuiTheme({
 		secondary: {
 			main: offWhite
 		}
+	},
+	typography: {
+		tab: {
+			fontFamily: "Raleway",
+			textTransform: "none",
+			fontWeight: 700,
+			fontSize: "1rem"
+		}
 	}
 })
