@@ -12,7 +12,7 @@ const frequencyCounter = (array1, array2) => {
 
 	// Compare arrays for frequency
 	for (let i = 0; i < array1.length; i++) {
-		const correctIndex = array2.indexOf(array1[i] ** 2)
+		const correctIndex = array2.indexOf(array1[i] ** 2) // IndexOf performs a loop
 
 		if (correctIndex === -1) {
 			// console.log(false)
@@ -25,3 +25,5 @@ const frequencyCounter = (array1, array2) => {
 }
 
 frequencyCounter(array1, array2)
+
+// Result is O(n2)
