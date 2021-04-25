@@ -12,19 +12,29 @@
 
 const isValidPassword = (password, username) => {
 	// Check if password length
-	if (password.length < 8) {
-		console.log(false)
-		return false
-	}
+	// if (password.length < 8) {
+	// 	console.log(false)
+	// 	return false
+	// }
 
 	// Check if password contains space
-	if (password.indexOf(" ") !== -1) {
-		console.log(false)
-		return false
-	}
+	// if (password.indexOf(" ") !== -1) {
+	// 	console.log(false)
+	// 	return false
+	// }
 
 	// Check if password contains username
-	if (password.includes(username)) {
+	// if (password.includes(username)) {
+	// 	console.log(false)
+	// 	return false
+	// }
+
+	// REFACTORED
+	if (
+		password.length < 8 ||
+		password.indexOf(" ") !== -1 ||
+		password.includes(username)
+	) {
 		console.log(false)
 		return false
 	}
