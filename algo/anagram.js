@@ -61,7 +61,7 @@ const validAnagram = (string1, string2) => {
 
 	const counter = {}
 
-	// Loop through Array1 and count char instances
+	// Loop through String1 and count char instances
 	for (let value of string1) {
 		counter[value] = (counter[value] || 0) + 1
 	}
