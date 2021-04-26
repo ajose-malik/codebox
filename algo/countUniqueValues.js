@@ -61,7 +61,7 @@ const countUniqueValues = array => {
 	}
 
 	let i = 0
-
+	// Loop through array with two pointers and check for unique numbers
 	for (let j = 1; j < array.length; j++) {
 		if (array[i] !== array[j]) {
 			i++
