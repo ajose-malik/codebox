@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
 	AppBar,
 	Toolbar,
@@ -14,6 +14,12 @@ export const Header = () => {
 	// destructured inline styles from HeaderStyles
 	const { toolbarMargin, logo, title, tabContainer, tab } = HeaderStyles()
 
+	// Set value of tab indicator
+	const [value, setValue] = useState(0)
+	const handleChange = (e, value) => {
+		setValue(value)
+	}
+
 	return (
 		<>
 			<AppBar>
@@ -22,7 +28,11 @@ export const Header = () => {
 					<Typography variant="h4" className={title} color="secondary">
 						Post Palaver
 					</Typography>
-					<Tabs className={tabContainer}>
+					<Tabs
+						value={value}
+						onChange={handleChange}
+						// indicatorColor="primary"
+						className={tabContainer}>
 						<Tab className={tab} label="Home"></Tab>
 						<Tab className={tab} label="Services"></Tab>
 						<Tab className={tab} label="About Us"></Tab>
