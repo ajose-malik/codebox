@@ -17,6 +17,36 @@
 // 	return Object.keys(counter).length
 // }
 
+// REFACTORED #1
+// const countUniqueValues = array => {
+// 	// Check if argument is array
+// 	if (!Array.isArray(array)) {
+// 		console.log("Wrong input")
+// 		return "Wrong input"
+// 	}
+
+// // Check if length is 0
+// 	if (array.length === 0) {
+// 		console.log(0)
+// 		return 0
+// 	}
+
+// 	let left = 0
+// 	let right = array.length - 1
+
+// 	const counter = {}
+// 	// Check each end of array and unique numbers to counter
+// 	while (left < right) {
+// 		counter[array[left]] = (counter[array[left]] || 0) + 1
+// 		counter[array[right]] = (counter[array[right]] || 0) + 1
+// 		left++
+// 		right--
+// 	}
+// 	console.log(Object.keys(counter).length)
+// 	return Object.keys(counter).length
+// }
+
+// REFACTORED #2
 const countUniqueValues = array => {
 	// Check if argument is array
 	if (!Array.isArray(array)) {
@@ -24,26 +54,24 @@ const countUniqueValues = array => {
 		return "Wrong input"
 	}
 
+	// Check if length is 0
 	if (array.length === 0) {
 		console.log(0)
 		return 0
 	}
 
-	let left = 0
-	let right = array.length - 1
+	let i = 0
 
-	const counter = {}
-	// Check each end of array and unique numbers to counter
-	while (left < right) {
-		counter[array[left]] = (counter[array[left]] || 0) + 1
-		counter[array[right]] = (counter[array[right]] || 0) + 1
-		left++
-		right--
+	for (let j = 1; j < array.length; j++) {
+		if (array[i] !== array[j]) {
+			i++
+			array[i] = array[j]
+		}
 	}
-	console.log(Object.keys(counter).length)
-	return Object.keys(counter).length
-}
 
+	console.log(i + 1)
+	return i + 1
+}
 countUniqueValues([1, 1, 1, 1, 1, 2]) // Expected output => 2
 countUniqueValues([1, 2, 3, 4, 4, 4, 4, 7, 7, 7, 7, 12, 13]) // Expected output => 7
 countUniqueValues([]) // Expected output => 0
