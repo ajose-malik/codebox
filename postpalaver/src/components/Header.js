@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core"
 import Logo from "../assets/logo.svg"
 import { HeaderStyles } from "./HeaderStyles"
+import { Link } from "react-router-dom"
 
 export const Header = () => {
 	// destructured inline styles from HeaderStyles
@@ -33,10 +34,27 @@ export const Header = () => {
 						onChange={handleChange}
 						// indicatorColor="primary"
 						className={tabContainer}>
-						<Tab className={tab} label="Home"></Tab>
-						<Tab className={tab} label="Services"></Tab>
-						<Tab className={tab} label="About Us"></Tab>
-						<Tab className={tab} label="Contact Us"></Tab>
+						<Tab className={tab} label="Home" component={Link} to="/"></Tab>
+						<Tab
+							className={tab}
+							label="Services"
+							component={Link}
+							to="/services"></Tab>
+						<Tab
+							className={tab}
+							label="Revolution"
+							component={Link}
+							to="/revolution"></Tab>
+						<Tab
+							className={tab}
+							label="About Us"
+							component={Link}
+							to="/about"></Tab>
+						<Tab
+							className={tab}
+							label="Contact Us"
+							component={Link}
+							to="/contact"></Tab>
 						<Button
 							className={tab}
 							size="small"
