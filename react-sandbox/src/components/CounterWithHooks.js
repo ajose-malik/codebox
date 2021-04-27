@@ -1,21 +1,16 @@
 import React, { useState } from "react"
 
-const Counter = () => {
-	// Set state
-	const [number, setNumber] = useState(0)
+const CounterWithHooks = ({ initialCount }) => {
+	// Use state
+	const [state, setState] = useState({ count: initialCount })
 
-	// Handle change
-	const handleChange = value => {
-		if (value === "+") setNumber(number + 1)
-		if (value === "-") setNumber(number - 1)
-	}
 	return (
 		<>
-			<button onClick={() => handleChange("-")}>-</button>
-			<h4 style={{ display: "inline", padding: "10px" }}>{number}</h4>
-			<button onClick={() => handleChange("+")}>+</button>
+			<button onClick={() => setState({ count: state.count - 1 })}>-</button>
+			<span style={{ padding: "10px" }}>{state.count}</span>
+			<button onClick={() => setState({ count: state.count + 1 })}>+</button>
 		</>
 	)
 }
 
-export default Counter
+export default CounterWithHooks

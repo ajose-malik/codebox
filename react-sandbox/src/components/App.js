@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import CounterWithClass from "./CounterWithClass"
-// import Counter from "./Counter"
+// import CounterWithClass from "./CounterWithClass"
+import CounterWithHooks from "./CounterWithHooks"
 // import FormInput from "./FormInput"
 
 class App extends Component {
@@ -8,8 +8,8 @@ class App extends Component {
 		return (
 			<>
 				<h1>Counter</h1>
-				<CounterWithClass initialCount={0} />
-				{/* <Counter /> */}
+				{/* <CounterWithClass initialCount={0} /> */}
+				<CounterWithHooks initialCount={0} />
 				{/* <FormInput /> */}
 			</>
 		)
