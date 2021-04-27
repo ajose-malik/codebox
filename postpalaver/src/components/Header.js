@@ -5,7 +5,9 @@ import {
 	Typography,
 	Tabs,
 	Tab,
-	Button
+	Button,
+	Menu,
+	MenuItem
 } from "@material-ui/core"
 import Logo from "../assets/logo.svg"
 import { HeaderStyles } from "./HeaderStyles"
@@ -21,6 +23,18 @@ export const Header = () => {
 		setValue(value)
 	}
 
+	// Set anchor of Material UI Menu components
+	const [anchorEl, setAnchorEl] = useState(null)
+	const [open, setOpen] = useState(false) // opens or close menu
+	const handleClick = e => {
+		setAnchorEl(e.currentTarget) // Sets location where menu will be opened
+		setOpen(true) // Opens menu
+	}
+	const handleClose = e => {
+		setAnchorEl(null)
+		setOpen(false)
+	}
+
 	// Check current URL and set value of tab indicator as needed
 	useEffect(() => {
 		if (window.location.pathname === "/" && value !== 0) {
@@ -33,7 +47,7 @@ export const Header = () => {
 			setValue(3)
 		} else if (window.location.pathname === "/contact" && value !== 4) {
 			setValue(4)
-		} else {
+		} else if (window.location.pathname === "/contact" && value !== 5) {
 			setValue(5)
 		}
 	}, [])
@@ -42,6 +56,7 @@ export const Header = () => {
 		<>
 			<AppBar>
 				<Toolbar disableGutters>
+					{/* Brand logo */}
 					<Button
 						disableRipple
 						component={Link}
@@ -53,15 +68,19 @@ export const Header = () => {
 							Post Palaver
 						</Typography>
 					</Button>
+					{/* Tabs */}
 					<Tabs
 						value={value}
 						onChange={handleChange}
-						// indicatorColor="primary"
-						className={tabContainer}>
+						className={tabContainer}
+						indicatorColor="primary">
 						<Tab className={tab} label="Home" component={Link} to="/"></Tab>
 						<Tab
+							aria-owns={anchorEl ? "simple-menu" : undefined}
+							aria-haspopup={anchorEl ? "true" : undefined}
 							className={tab}
 							label="Services"
+							onMouseOver={e => handleClick(e)} // Opens service menu
 							component={Link}
 							to="/services"></Tab>
 						<Tab
@@ -79,6 +98,8 @@ export const Header = () => {
 							label="Contact Us"
 							component={Link}
 							to="/contact"></Tab>
+
+						{/* Estimate Button */}
 						<Button
 							className={tab}
 							size="small"
@@ -88,6 +109,20 @@ export const Header = () => {
 							to="/estimate">
 							Estimate
 						</Button>
+
+						{/* Services Menu */}
+						<Menu
+							id="simple-men"
+							anchorEl={anchorEl}
+							open={open}
+							onClose={handleClose}
+							MenuListProps={{ onMouseLeave: handleClose }}>
+							<MenuItem onClick={handleClose}>
+								Custom Software Development
+							</MenuItem>
+							<MenuItem onClick={handleClose}>Mobile App development</MenuItem>
+							<MenuItem onClick={handleClose}>Website Development</MenuItem>
+						</Menu>
 					</Tabs>
 				</Toolbar>
 			</AppBar>
