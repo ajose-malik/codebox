@@ -1,13 +1,19 @@
-import React from "react"
-import Counter from "./Counter"
+import React, { Component } from "react"
+import CounterWithClass from "./CounterWithClass"
+// import Counter from "./Counter"
+// import FormInput from "./FormInput"
 
-const App = () => {
-	return (
-		<>
-			<h1>Counter</h1>
-			<Counter />
-		</>
-	)
+class App extends Component {
+	render() {
+		return (
+			<>
+				<h1>Counter</h1>
+				<CounterWithClass initialCount={0} />
+				{/* <Counter /> */}
+				{/* <FormInput /> */}
+			</>
+		)
+	}
 }
 
 export default App
