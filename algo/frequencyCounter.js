@@ -53,7 +53,7 @@ const frequencyCounter = (array1, array2) => {
 	}
 
 	// Check for frequency
-	for (key in counter1) {
+	for (let key in counter1) {
 		if (!(key ** 2 in counter2)) {
 			return false
 		}
