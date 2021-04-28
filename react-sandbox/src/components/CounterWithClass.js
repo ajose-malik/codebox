@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { ThemeContext } from "./App"
 
 class CounterWithClass extends Component {
 	constructor(props) {
@@ -17,11 +18,19 @@ class CounterWithClass extends Component {
 
 	render() {
 		return (
-			<>
-				<button onClick={() => this.changeCount(-1)}>-</button>
-				<span style={{ padding: "10px" }}>{this.state.count}</span>
-				<button onClick={() => this.changeCount(1)}>+</button>
-			</>
+			<ThemeContext.Consumer>
+				{style => (
+					<div>
+						<button style={style} onClick={() => this.changeCount(-1)}>
+							-
+						</button>
+						<span style={{ padding: "10px" }}>{this.state.count}</span>
+						<button style={style} onClick={() => this.changeCount(1)}>
+							+
+						</button>
+					</div>
+				)}
+			</ThemeContext.Consumer>
 		)
 	}
 }
