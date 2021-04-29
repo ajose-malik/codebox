@@ -15,7 +15,15 @@ import { Link } from "react-router-dom"
 
 export const Header = () => {
 	// destructured inline styles from HeaderStyles
-	const { toolbarMargin, logo, title, tabContainer, tab } = HeaderStyles()
+	const {
+		toolbarMargin,
+		logo,
+		title,
+		tabContainer,
+		tab,
+		menu,
+		menuItem
+	} = HeaderStyles()
 
 	// Set value of tab indicator
 	const [value, setValue] = useState(0)
@@ -116,9 +124,11 @@ export const Header = () => {
 							anchorEl={anchorEl}
 							open={open}
 							onClose={handleClose}
+							classes={{ paper: menu }} // Using the CSS classes property from Material UI Menu component API
 							MenuListProps={{ onMouseLeave: handleClose }} // Tracks mouse events on menu list
-						>
+							elevation={0}>
 							<MenuItem
+								classes={{ root: menuItem }}
 								onClick={() => {
 									handleClose()
 									setValue(1)
@@ -128,6 +138,7 @@ export const Header = () => {
 								Services
 							</MenuItem>
 							<MenuItem
+								classes={{ root: menuItem }}
 								onClick={() => {
 									handleClose()
 									setValue(1)
@@ -137,6 +148,7 @@ export const Header = () => {
 								Custom Software Development
 							</MenuItem>
 							<MenuItem
+								classes={{ root: menuItem }}
 								onClick={() => {
 									handleClose()
 									setValue(1)
@@ -146,6 +158,7 @@ export const Header = () => {
 								Mobile App Development
 							</MenuItem>
 							<MenuItem
+								classes={{ root: menuItem }}
 								onClick={() => {
 									handleClose()
 									setValue(1)
@@ -158,7 +171,8 @@ export const Header = () => {
 					</Tabs>
 				</Toolbar>
 			</AppBar>
-			<div className={toolbarMargin}></div>
+			{/*Push down element behind toolbar*/}
+			<div className={toolbarMargin}></div>{" "}
 		</>
 	)
 }

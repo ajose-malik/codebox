@@ -21,5 +21,17 @@ export const HeaderStyles = makeStyles(theme => ({
 		...theme.typography.tab,
 		minWidth: 10,
 		marginLeft: "25px"
+	},
+	menu: {
+		backgroundColor: theme.palette.primary.main,
+		color: theme.palette.secondary.main,
+		borderRadius: "0px"
+	},
+	menuItem: {
+		...theme.typography.tab,
+		opacity: 0.7,
+		"&:hover": {
+			opacity: 1
+		}
 	}
 }))
