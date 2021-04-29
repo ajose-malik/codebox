@@ -1,10 +1,11 @@
-import Head from "next/head"
-import styles from "../styles/Home.module.css"
+import Layout from "../components/Layout"
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<>
-			<h1>Home</h1>
+			<Layout>
+				<h1>Home</h1>
+			</Layout>
 		</>
 	)
 }
