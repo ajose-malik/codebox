@@ -22,7 +22,8 @@ export const Header = () => {
 		tabContainer,
 		tab,
 		menu,
-		menuItem
+		menuItem,
+		position
 	} = HeaderStyles()
 
 	// Set value of tab indicator
@@ -42,6 +43,24 @@ export const Header = () => {
 		setAnchorEl(null)
 		setOpen(false)
 	}
+
+	// Set index of services menu items by looping through array of menu options
+	const [selectedIndex, setSelectedIndex] = useState(0)
+	const handleMenuItemClick = (e, idx) => {
+		setAnchorEl(null)
+		setOpen(false)
+		setSelectedIndex(1)
+	}
+	// Services menu options
+	const menuOptions = [
+		{
+			name: "Services",
+			link: "/services"
+		},
+		{ name: "Custom Software Development", link: "/customsoftware" },
+		{ name: "Mobile App Development", link: "/mobileapps" },
+		{ name: "Website Development", link: "/websites" }
+	]
 
 	// Check current URL and set value of tab indicator as needed
 	useEffect(() => {
@@ -121,52 +140,29 @@ export const Header = () => {
 						{/* Services Menu */}
 						<Menu
 							id="simple-men"
+							className={position}
 							anchorEl={anchorEl}
 							open={open}
 							onClose={handleClose}
 							classes={{ paper: menu }} // Using the CSS classes property from Material UI Menu component API
 							MenuListProps={{ onMouseLeave: handleClose }} // Tracks mouse events on menu list
 							elevation={0}>
-							<MenuItem
-								classes={{ root: menuItem }}
-								onClick={() => {
-									handleClose()
-									setValue(1)
-								}}
-								component={Link}
-								to="/services">
-								Services
-							</MenuItem>
-							<MenuItem
-								classes={{ root: menuItem }}
-								onClick={() => {
-									handleClose()
-									setValue(1)
-								}}
-								component={Link}
-								to="/customsoftware">
-								Custom Software Development
-							</MenuItem>
-							<MenuItem
-								classes={{ root: menuItem }}
-								onClick={() => {
-									handleClose()
-									setValue(1)
-								}}
-								component={Link}
-								to="/mobileapps">
-								Mobile App Development
-							</MenuItem>
-							<MenuItem
-								classes={{ root: menuItem }}
-								onClick={() => {
-									handleClose()
-									setValue(1)
-								}}
-								component={Link}
-								to="/websites">
-								Website Development
-							</MenuItem>
+							{/* Loop over menuOptions to set each menuItem*/}
+							{menuOptions.map((option, idx) => (
+								<MenuItem
+									key={option + idx}
+									component={Link}
+									to={option.link}
+									classes={{ root: menuItem }}
+									onClick={e => {
+										handleMenuItemClick(e, idx)
+										setValue(1)
+										handleClose()
+									}}
+									selected={idx === selectedIndex}>
+									{option.name}
+								</MenuItem>
+							))}
 						</Menu>
 					</Tabs>
 				</Toolbar>

@@ -33,5 +33,9 @@ export const HeaderStyles = makeStyles(theme => ({
 		"&:hover": {
 			opacity: 1
 		}
+	},
+	position: {
+		marginTop: "-8px",
+		marginLeft: "-4px"
 	}
 }))
