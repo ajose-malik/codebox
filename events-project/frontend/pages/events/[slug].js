@@ -31,7 +31,7 @@ export default function EventPage({ event }) {
 					<h1>{event.name}</h1>
 					{event.image && (
 						<div className={Styles.image}>
-							<image src={EventTarget.image} width={960} height={600} />
+							<image src={event.image} width={960} height={600} />
 						</div>
 					)}
 					<h3>Performers:</h3>
