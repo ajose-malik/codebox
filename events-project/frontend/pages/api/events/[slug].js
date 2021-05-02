@@ -1,7 +1,7 @@
 const { events } = require("./data.json")
 
 export default (req, res) => {
-	const eventSlug = events.filter(evt => evt.slug === req.query.slug) // Filter out "slug" in events that matches request slug
+	const eventSlug = events.filter(event => event.slug === req.query.slug) // Filter out "slug" in events that matches request slug
 
 	// Check RESTful method
 	if (req.method === "GET") {
