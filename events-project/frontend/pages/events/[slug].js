@@ -26,12 +26,16 @@ export default function EventPage({ event }) {
 						</a>
 					</div>
 					<span>
-						{event.date} at {event.time}
+						{new Date(event.date).toLocaleDateString("en-US")} at {event.time}
 					</span>
 					<h1>{event.name}</h1>
 					{event.image && (
 						<div className={Styles.image}>
-							<image src={event.image} width={960} height={600} />
+							<img
+								src={event.image.formats.medium.url}
+								width={960}
+								height={600}
+							/>
 						</div>
 					)}
 					<h3>Performers:</h3>
@@ -53,7 +57,7 @@ export default function EventPage({ event }) {
 // Fetch data from server side {./pages/api/events/[slug]} as props
 // getServerSideProps is for dynamic websites and makes request on each browser reload
 export async function getServerSideProps({ query: { slug } }) {
-	const res = await fetch(`${API_URL}/api/events/${slug}`)
+	const res = await fetch(`${API_URL}/events?slug=${slug}`)
 	const events = await res.json()
 	return {
 		props: { event: events[0] }
@@ -78,7 +82,7 @@ export async function getServerSideProps({ query: { slug } }) {
 // }
 // // getStaticProps is for static websites and makes request once during build time
 // export async function getStaticProps({ params: { slug } }) {
-// 	const res = await fetch(`${API_URL}/api/events/${slug}`)
+// 	const res = await fetch(`${API_URL}/events/${slug}`)
 // 	const events = await res.json()
 
 // 	// Must return object
