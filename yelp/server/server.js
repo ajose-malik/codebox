@@ -63,22 +63,35 @@ app.post("/api/v1/restaurants/:id", async (req, res) => {
 });
 
 // Update restaurant
-app.put("/api/v1/restaurants/:id", (req, res) => {
-	console.log(req.params.id);
-	console.log(req.body);
-
-	res.status(200).json({
-		status: "success",
-		data: {
-			restaurant: "Jerk Chicken"
-		}
-	});
+app.put("/api/v1/restaurants/:id", async (req, res) => {
+	try {
+		const results = await db.query(
+			"update restaurants set name = $1, location = $2, price_range = $3 where id = $4 returning *",
+			[req.body.name, req.body.location, req.body.price_range, req.params.id]
+		);
+		res.status(200).json({
+			status: "success",
+			data: {
+				restaurant: results.rows[0]
+			}
+		});
+	} catch (e) {
+		console.log(e);
+	}
 });
 
-app.delete("/api/v1/restaurants/:id", (req, res) => {
-	req.status(204).json({
-		status: "deleted"
-	});
+// Delete restaurant
+app.delete("/api/v1/restaurants/:id", async (req, res) => {
+	try {
+		const results = await db.query("delete from restaurants where id = $1", [
+			req.params.id
+		]);
+		res.status(204).json({
+			status: "deleted"
+		});
+	} catch (e) {
+		console.log(e);
+	}
 });
 
 // Port to listen from
