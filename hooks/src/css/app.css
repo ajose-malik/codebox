@@ -1,0 +1,15 @@
+@import "font.css";
+@import "recipeList.css";
+@import "buttons.css";
+@import "recipe.css";
+@import "ingredientList.css";
+
+*,
+*::before,
+*::after {
+	font-family: Lato, "Times New Roman";
+}
+
+.mr-1 {
+	margin-right: 5px;
+}

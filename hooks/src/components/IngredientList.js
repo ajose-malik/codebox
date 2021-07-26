@@ -6,5 +6,5 @@ export const IngredientList = ({ ingredients }) => {
 		<Ingredient key={ingredient.id} {...ingredient} />
 	));
 
-	return <div>{ingredientsElements}</div>;
+	return <div className="ingredient-grid">{ingredientsElements}</div>;
 };
