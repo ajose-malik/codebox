@@ -3,11 +3,13 @@
 @import "buttons.css";
 @import "recipe.css";
 @import "ingredientList.css";
+@import "recipeEdit";
 
 *,
 *::before,
 *::after {
 	font-family: Lato, "Times New Roman";
+	box-sizing: border-box;
 }
 
 .mr-1 {
