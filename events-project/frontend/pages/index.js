@@ -1,49 +1,65 @@
-import Link from "next/link"
-import Layout from "@components/Layout"
-import EventItems from "@components/EventItem"
-import { API_URL } from "@config/index"
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
-export default function HomePage({ events }) {
-	return (
-		<>
-			<Layout>
-				<h1>Upcoming Events</h1>
-				{events.length === 0 && <h3>No events to show</h3>}
-				{events.map(event => (
-					<EventItems key={event.id} event={event} />
-				))}
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-				{events.length > 0 && (
-					<Link href="/events">
-						<a className="btn-secondary"> View All Events</a>
-					</Link>
-				)}
-			</Layout>
-		</>
-	)
-}
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        </h1>
 
-// // Fetch data from server side {./pages/api/events/index} as props
-// // getServerSideProps is for dynamic websites and makes request on each browser reload
-// export async function getServerSideProps() {
-// 	const res = await fetch(`${API_URL}/events`)
-// 	const events = await res.json()
+        <p className={styles.description}>
+          Get started by editing{' '}
+          <code className={styles.code}>pages/index.js</code>
+        </p>
 
-// 	// Must return object
-// 	return {
-// 		props: { events }
-// 	}
-// }
+        <div className={styles.grid}>
+          <a href="https://nextjs.org/docs" className={styles.card}>
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
 
-// Fetch data from server side {./pages/api/events/index} as props
-// getStaticProps is for static websites and makes request once during build time
-export async function getStaticProps() {
-	const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`) // Display the first 3 events
-	const events = await res.json()
+          <a href="https://nextjs.org/learn" className={styles.card}>
+            <h3>Learn &rarr;</h3>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
 
-	// Must return object
-	return {
-		props: { events },
-		revalidate: 1 // This option bypasses the getStaticProps behavior by fetching data when changes are made after build time. Currently set to fetch data 1 second after changes are made to API
-	}
+          <a
+            href="https://github.com/vercel/next.js/tree/master/examples"
+            className={styles.card}
+          >
+            <h3>Examples &rarr;</h3>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
+
+          <a
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.card}
+          >
+            <h3>Deploy &rarr;</h3>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
+      </main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+        </a>
+      </footer>
+    </div>
+  )
 }

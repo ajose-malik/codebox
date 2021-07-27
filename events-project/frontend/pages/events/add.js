@@ -1,11 +1,7 @@
-import Layout from "@components/Layout"
-
-export default function AddEventPage() {
+export default () => {
 	return (
-		<>
-			<Layout title="Add New Event" description="hell yeahs">
-				<h1>Add events</h1>
-			</Layout>
-		</>
-	)
-}
+		<div>
+			<h1>Add Page</h1>
+		</div>
+	);
+};
