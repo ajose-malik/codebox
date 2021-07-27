@@ -1,8 +1,10 @@
+import Layout from "@components/Layout";
+
 export default function AboutPage() {
 	return (
-		<div>
+		<Layout title="About DJs">
 			<h1>About Page</h1>
 			<p>This page is legend</p>
-		</div>
+		</Layout>
 	);
 }

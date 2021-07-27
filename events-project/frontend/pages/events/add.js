@@ -1,7 +1,9 @@
+import Layout from "@components/Layout";
+
 export default () => {
 	return (
-		<div>
-			<h1>Add Page</h1>
-		</div>
+		<Layout title="Add New Event">
+			<h1>Add Event</h1>
+		</Layout>
 	);
 };
