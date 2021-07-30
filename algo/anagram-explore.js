@@ -1,41 +1,39 @@
 // Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word , phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
-const validAnagram = (string1, string2) => {
-	// Convert strings to array
-	const array1 = string1.split("");
-	const array2 = string2.split("");
-	console.log(array1, array2);
+const validAnagram = (str1, str2) => {
+	// Convert strings to arrays
+	const arr1 = str1.split("");
+	const arr2 = str2.split("");
+	// console.log(arr1, arr2); returns [ 'a', 'a', 'z' ] [ 'z', 'z', 'a' ]
 
 	const counter1 = {};
 	const counter2 = {};
 
 	// Check if arguments are strings
-	if (typeof string1 !== "string" || typeof string2 !== "string") {
-		console.log("Wrong input");
-		return false;
-	}
-
-	// Check if arguments are same length
-	if (array1.length !== array2.length) {
+	if (typeof str1 !== "string" || typeof str2 !== "string") {
 		console.log(false);
 		return false;
 	}
 
-	// Loop through Array1 and count char instances
-	for (let value of array1) {
-		counter1[value] = (counter1[value] || 0) + 1;
+	// Check length of
+	if (arr1.length !== arr2.length) {
+		console.log(false);
+		return false;
 	}
 
-	// Loop through Array2 and count char instances
-	for (let value of array2) {
+	// Loop through arr1 and count instances of each character
+	for (let value of arr1) {
+		counter1[value] = (counter1[value] || 0) + 1;
+	}
+	// Loop through arr2 and count instances of each character
+	for (let value of arr2) {
 		counter2[value] = (counter2[value] || 0) + 1;
 	}
 
-	console.log(counter1, counter2);
+	// console.log(counter1, counter2);
 
 	// Check if same char and same number of char exist in each counter
 	for (let key in counter1) {
-		// console.log(key)
 		if (counter1[key] !== counter2[key]) {
 			console.log(false);
 			return false;
