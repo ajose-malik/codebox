@@ -4,7 +4,7 @@ export default function AboutPage() {
 	return (
 		<Layout title="About DJs">
 			<h1>About Page</h1>
-			<p>This page is legend</p>
+			<p>This page is legendary</p>
 		</Layout>
 	);
 }
