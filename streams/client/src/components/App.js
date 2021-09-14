@@ -5,27 +5,21 @@ import StreamEdit from "./streams/StreamEdit"
 import StreamDelete from "./streams/StreamDelete"
 import StreamList from "./streams/StreamList"
 import StreamShow from "./streams/StreamShow"
+import Header from "./Header"
 
 export default function App() {
 	return (
-		<>
+		<div className="ui container">
 			<BrowserRouter>
 				<div>
+					<Header />
 					<Route path="/" exact component={StreamList}></Route>
-				</div>
-				<div>
 					<Route path="/streams/new" exact component={StreamCreate}></Route>
-				</div>
-				<div>
 					<Route path="/streams/edit" exact component={StreamEdit}></Route>
-				</div>
-				<div>
 					<Route path="/streams/delete" exact component={StreamDelete}></Route>
-				</div>
-				<div>
 					<Route path="/streams/show" exact component={StreamShow}></Route>
 				</div>
 			</BrowserRouter>
-		</>
+		</div>
 	)
 }
